@@ -16,15 +16,20 @@
         </select>
         <br/>
         <label>Nombre</label>
+        <div class="form-group">
         <input required type="text" name="nombre" placeholder="Nombre de la mascota">
         <br/>
+        </div>
         <label>Precio</label>
+        <div class="form-group">
         <input required type="text" name="precio" placeholder="Precio en pesos $$">
         <br/>
+        </div>
         <label>Fecha de nacimiento</label>
+        <div class="form-group">
         <input required type="date" name="nacimiento" >
         <br/>
-       
+        </div>
         
         <div class="form-group">
             <label class="control-label">Pais</label>
@@ -39,7 +44,7 @@
         <div class="form-group">
             <label class="control-label">Estado</label>
             <select class="form-control" name="estado" id="slcEstado" required>
-                <option selected disabled value="">Elige un stado</option>
+                <option selected disabled value="">Elige un estado</option>
             </select>
         </div>
 
@@ -56,8 +61,13 @@
     function doChangePais(event) {
         $.get("/api/estados/" + $("#slcPais").val(),
         function (data) {
-            console.log(data);
-        })
+            //console.log(data);
+            $("#slcEstado").empty();
+            $("#slcEstado").append(<option selected disabled value="">Elige un estado</option>);
+            for(var i=0; i<data.length; i++){
+                
+            }
+        });
     }
 
 
